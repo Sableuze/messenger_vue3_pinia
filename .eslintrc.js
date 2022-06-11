@@ -71,8 +71,8 @@ module.exports = {
   rules: {
 
     'prefer-promise-reject-errors': 'off',
-
-    quotes: ['warn', 'single', { avoidEscape: true }],
+    'indent': [ "error", 2 ],
+    'quotes': ['warn', 'single', { avoidEscape: true }],
 
     // this rule, if on, would require explicit return type on the `render` function
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -87,10 +87,10 @@ module.exports = {
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'brace-style': [2, 'stroustrup', { 'allowSingleLine': true }],
+    'brace-style': [2, 'stroustrup', { 'allowSingleLine': false }],
 
-    'vue/max-attributes-per-line': 0,
-    'vue/valid-v-for': 0,
+    'vue/max-attributes-per-line': 2,
+    'vue/valid-v-for': 2,
 
     // allow async-await
     'generator-star-spacing': 'off',

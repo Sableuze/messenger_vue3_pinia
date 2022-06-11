@@ -2,9 +2,16 @@
   <q-layout class='auth auth-cnt'>
     <section class='section-greetings'>
       <h1 class='greetings-title'>Hello</h1>
-      <transition name='switch' mode='out-in'>
-        <div v-if='isAuthOptionsHidden' class='stage-item stage-one'>
-          <q-btn size='lg' @click='isAuthOptionsHidden = false'>Start using the app</q-btn>
+      <transition
+        name='switch'
+        mode='out-in'>
+        <div
+          v-if='isAuthOptionsHidden'
+          class='stage-item stage-one'>
+          <q-btn
+            size='lg'
+            @click='isAuthOptionsHidden = false'>Start using the app
+          </q-btn>
         </div>
         <template v-else>
           <AuthButtonsList></AuthButtonsList>
@@ -16,8 +23,9 @@
 
 <script setup lang='ts'>
 import { ref } from 'vue';
-import AuthButtonsList from 'src/components/auth/AuthButtonsList.vue'
-const isAuthOptionsHidden = ref<boolean>(true);
+import AuthButtonsList from '@/modules/auth/components/AuthButtonsList.vue';
+
+const isAuthOptionsHidden = ref<boolean>(true)
 </script>
 
 <style scoped lang='scss'>
@@ -40,7 +48,7 @@ const isAuthOptionsHidden = ref<boolean>(true);
   display: flex;
   flex-direction: column;
 
-  .greetings-title{
+  .greetings-title {
     margin-bottom: 16px;
   }
 }
