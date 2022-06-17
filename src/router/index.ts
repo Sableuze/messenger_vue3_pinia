@@ -7,8 +7,7 @@ import {
 } from 'vue-router';
 
 import routes from './routes';
-import { useAuthStore } from 'src/stores';
-
+import { useAppState } from '@/stores/appState';
 /*
  * If not building with SSR mode, you can
  * directly export the Router instantiation;
@@ -36,8 +35,7 @@ export default route(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to) => {
-    const store = useAuthStore()
-    debugger
+    const store = useAppState()
     if (to.meta.requiresAuth && !store.isLoggedIn) return '/auth'
     if (to.meta.authPage && store.isLoggedIn) return '/'
   })

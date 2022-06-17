@@ -9,7 +9,7 @@ import { createPinia } from 'pinia'
  * async/await or return a Promise which resolves
  * with the Store instance.
  */
-export * from './user'
+export * from './appState'
 export default store((/* { ssrContext } */) => {
   const pinia = createPinia()
 

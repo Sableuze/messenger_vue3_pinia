@@ -1,9 +1,8 @@
-import { app } from 'src/services/FirebaseApp';
+import { app, auth } from 'src/services/FirebaseApp';
 import { getAuth, signInWithPopup, GoogleAuthProvider ,signOut, reload } from 'firebase/auth';
 import { AuthProviders } from 'src/services/authService/AuthProviders';
 import { AuthProvider } from 'src/types/services/';
 
-const auth = getAuth(app);
 
 export const signIn = async (providerFlag: AuthProvider) => {
   const provider = AuthProviders[providerFlag] || AuthProviders['google']

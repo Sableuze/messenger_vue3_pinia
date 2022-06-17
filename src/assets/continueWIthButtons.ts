@@ -11,13 +11,13 @@ export const buttonsList: AuthButton[] = [
   },
   {
     icon: googleIcon,
-    flag: 'google',
+    flag: 'github',
     btnText: 'Continue with google',
     id: '2'
   },
   {
     icon: googleIcon,
-    flag: 'google',
+    flag: 'github',
     btnText: 'Continue with google',
     id: '3'
   },

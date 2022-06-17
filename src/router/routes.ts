@@ -4,18 +4,17 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/auth',
     name: 'Auth',
-    component: () => import('layouts/AuthLayout.vue'),
+    component: () => import('src/shared/layouts/AuthLayout.vue'),
     meta: {
       authPage: true
     }
   },
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('src/shared/layouts/MainLayout.vue'),
     meta: {
       requiresAuth: true
     },
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
 
 
