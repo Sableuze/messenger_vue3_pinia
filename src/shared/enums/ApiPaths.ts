@@ -1,3 +1,4 @@
 export enum ApiPaths  {
-  users = 'users/'
+  users = 'users/',
+  chats = 'chats/'
 }

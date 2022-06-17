@@ -7,7 +7,7 @@ import { checkForItemInDb } from '@/services/realtimeStorage/Helpers';
 
 import { ApiPaths } from '@/shared/enums/ApiPaths';
 import { addUserToDbBase } from '@/services/realtimeStorage/Users';
-import { TUser } from '@/shared/types/user/userTypes';
+import { subscribeToChats } from '@/modules/chats/store/api';
 const LOCAL_STORAGE_TOKEN = 'token'
 const LOCAL_STORAGE_EXPIRATION = 'expirationTime'
 
@@ -63,17 +63,16 @@ export const useAppState = defineStore('appState', {
     },
     async login(flag: AuthProvider) {
       const {token, user} = await signIn(flag)
-
       if (token && user) {
         this.token = token
         this.tokenExpirationTime = (user as any).stsTokenManager.expirationTime
 
         setItem(LOCAL_STORAGE_TOKEN, this.token)
         setItem(LOCAL_STORAGE_EXPIRATION, this.tokenExpirationTime)
-        console.log(user);
+
         if (!await checkForItemInDb({ id: user.uid, path: ApiPaths.users })){
-          // const { name, id, email, image } = user
-          // addUserToDbBase
+          const { displayName, uid, email, photoURL } = user
+          addUserToDbBase({ displayName, uid, email, photoURL })
         }
 
         this.setUser(user)
@@ -102,6 +101,7 @@ export const useAppState = defineStore('appState', {
     setUser(user: UserInfo) {
       this.userData.name = user.displayName || 'N/A'
       this.userData.uid = user.uid
-    }
+    },
+
   },
 });

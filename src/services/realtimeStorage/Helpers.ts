@@ -1,9 +1,8 @@
-import { onValue, ref } from 'firebase/database';
+import {  ref, child, get } from 'firebase/database';
 import { db } from 'src/services/FirebaseApp';
-
-export const checkForItemInDb = ({ id, path }: {id: string, path: string}) => {
-  return onValue(ref(db, `${path}` + id), (snapshot) => {
-    debugger
+const dbRef = ref(db)
+export const checkForItemInDb = async ({ id, path }: {id: string, path: string}) => {
+  return get(child(dbRef, path + id)).then((snapshot) => {
     return snapshot.exists();
   })
 };

@@ -1,6 +1,6 @@
-export type TUser = {
-  displayName: string,
+export type TUserInitial = {
+  displayName: string | null,
   uid: string,
-  email: string,
-  photoURL: string
+  email: string | null,
+  photoURL: string | null
 }

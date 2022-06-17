@@ -7,6 +7,7 @@ import { getDatabase } from 'firebase/database';
 const firebaseConfig = {
   apiKey: 'AIzaSyBOjmGCuf5qjfidZXSSctjnoHXy77ClHE4',
   authDomain: 'messenger-c965e.firebaseapp.com',
+  databaseURL: 'https://messenger-c965e-default-rtdb.asia-southeast1.firebasedatabase.app/',
   projectId: 'messenger-c965e',
   storageBucket: 'messenger-c965e.appspot.com',
   messagingSenderId: '452373502309',
